@@ -22,6 +22,7 @@ public class FruitMachine {
         this.symbols = new ArrayList<>();
         this.results = new ArrayList<>();
         this.generateSymbols();
+        this.ui = new Ui();
     }
 
     public void generateSymbols(){
@@ -96,7 +97,7 @@ public class FruitMachine {
 
     public void play() {
         String response = ui.askUserIfTheyWantToPlay().toUpperCase();
-        if (response.equals("Y") && playerFunds > 0 && machineFunds > 0){
+        if (response.equals("Y") && playerFunds > 0 && machineFunds > 0) {
             this.spin();
             int winnings = this.compareSymbolsReturnWinnings();
             this.payout(winnings);
