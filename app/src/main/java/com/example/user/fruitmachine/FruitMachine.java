@@ -107,6 +107,8 @@ public class FruitMachine {
             this.payout(winnings);
             setPlayerFunds(playerFunds - 1);
             ui.showUserSymbols(describeSymbols());
+            ui.resultDependentText(this.compareSymbolsReturnWinnings());
+            ui.showUserFunds(playerFunds);
         }
     }
 }
