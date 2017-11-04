@@ -60,6 +60,10 @@ public class FruitMachine {
         return randomSymbol;
     }
 
+    public void fillUpMachineFunds(int total){
+        setMachineFunds(total);
+    }
+
     public void spin(){
         Symbol firstSymbol = generateSingleRandomFruit();
         Symbol secondSymbol = generateSingleRandomFruit();
