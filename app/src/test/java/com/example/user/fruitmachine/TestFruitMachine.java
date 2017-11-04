@@ -21,7 +21,7 @@ public class TestFruitMachine {
     public void setUp() throws Exception {
         symbols = new ArrayList<>();
         results = new ArrayList<>();
-        fruitMachine = new FruitMachine("The Juicy Lucy", 100, 200, symbols, results);
+        fruitMachine = new FruitMachine("The Juicy Lucy", 100, 200);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class TestFruitMachine {
 
     @Test
     public void testFruitMachineSingleRandomFruit() throws Exception {
-        FruitMachine spyMachine = Mockito.spy(new FruitMachine("Test", 100, 200, symbols, results));
+        FruitMachine spyMachine = Mockito.spy(new FruitMachine("Test", 100, 200));
         Mockito.when(spyMachine.generateSingleRandomFruit()).thenReturn(Symbol.APPLE);
         int valueOfSingleFruit = spyMachine.generateSingleRandomFruit().getValue();
         assertEquals(4, valueOfSingleFruit);
@@ -56,7 +56,7 @@ public class TestFruitMachine {
 
     @Test
     public void testCompareSymbolsAndReturnValue() throws Exception {
-        FruitMachine spyMachine = Mockito.spy(new FruitMachine("Test", 100, 200, symbols, results));
+        FruitMachine spyMachine = Mockito.spy(new FruitMachine("Test", 100, 200));
         spyMachine.spin();
         Mockito.when(spyMachine.compareSymbolsReturnWinnings()).thenReturn(9);
         assertEquals(9, spyMachine.compareSymbolsReturnWinnings());
@@ -64,13 +64,15 @@ public class TestFruitMachine {
 
     @Test
     public void testPayout() throws Exception {
-        FruitMachine spyMachine = Mockito.spy(new FruitMachine("Test", 100, 200, symbols, results));
+        FruitMachine spyMachine = Mockito.spy(new FruitMachine("Test", 100, 200));
         spyMachine.spin();
         Mockito.when(spyMachine.compareSymbolsReturnWinnings()).thenReturn(9);
         int winnings = spyMachine.compareSymbolsReturnWinnings();
         spyMachine.payout(winnings);
         assertEquals(91, spyMachine.getFunds());
     }
+
+
 
 
 }

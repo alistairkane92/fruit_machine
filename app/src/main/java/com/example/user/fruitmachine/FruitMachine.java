@@ -13,14 +13,21 @@ public class FruitMachine {
     private int playerFunds;
     private ArrayList<Symbol> symbols;
     private ArrayList<Symbol> results;
+    private Ui ui;
 
-    public FruitMachine(String name, int machineFunds, int playerFunds, ArrayList<Symbol> symbols, ArrayList<Symbol> results) {
+    public FruitMachine(String name, int machineFunds, int playerFunds) {
         this.name = name;
         this.machineFunds = machineFunds;
         this.playerFunds = playerFunds;
-        this.symbols = symbols;
-        this.results = results;
+        this.symbols = new ArrayList<>();
+        this.results = new ArrayList<>();
         this.generateSymbols();
+    }
+
+    public void generateSymbols(){
+        for (Symbol symbol : Symbol.values()){
+            symbols.add(symbol);
+        }
     }
 
     public ArrayList<Symbol> getResults() {
@@ -33,12 +40,6 @@ public class FruitMachine {
 
     public ArrayList<Symbol> getSymbols() {
         return symbols;
-    }
-
-    public void generateSymbols(){
-        for (Symbol symbol : Symbol.values()){
-                symbols.add(symbol);
-        }
     }
 
     public void setMachineFunds(int newFunds) {
@@ -83,11 +84,26 @@ public class FruitMachine {
         this.setPlayerFunds(this.playerFunds + winnings);
     }
 
-    public void play(){
-        if (this.machineFunds > 0 && playerFunds > 0){
+    public String describeSymbols(){
+        String resultsText = "";
+
+        for (Symbol symbol: this.results){
+            resultsText += symbol.name() + ", ";
+        }
+
+        return resultsText;
+    }
+
+    public void play() {
+        String response = ui.askUserIfTheyWantToPlay().toUpperCase();
+        if (response.equals("Y") && playerFunds > 0 && machineFunds > 0){
             this.spin();
             int winnings = this.compareSymbolsReturnWinnings();
             this.payout(winnings);
+            setPlayerFunds(playerFunds - 1);
+            ui.showUserSymbols(describeSymbols());
         }
     }
 }
+
+

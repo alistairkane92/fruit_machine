@@ -9,4 +9,9 @@ import java.util.ArrayList;
 
 public class Runner {
 
+    public static void main(String[] args) {
+        FruitMachine fruitMachine = new FruitMachine("The Juicy Lucy", 200, 100);
+        fruitMachine.play();
+    }
+
 }
