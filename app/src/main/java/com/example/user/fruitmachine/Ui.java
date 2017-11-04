@@ -22,7 +22,11 @@ public class Ui {
     }
 
     public String askUserIfTheyWantToPlay(){
+        System.out.println("----------------------------------------------------------");
+        System.out.println("-- Welcome to the Puggy! Please contain your excitement --");
+        System.out.println("----------------------------------------------------------");
         System.out.println("Do you want to play a game? Y/N");
+
         try {
             response = br.readLine();
         } catch (IOException e){
@@ -32,8 +36,10 @@ public class Ui {
     }
 
     public void showUserSymbols(String threeSymbols){
-        System.out.println("Spinning the wheel...");
-        System.out.println(threeSymbols);
+        System.out.println("----------------- Spinning the wheel ---------------------");
+        System.out.println(" ");
+        System.out.println("             ===== " + threeSymbols + "======");
+        System.out.println(" ");
         System.out.println("Gambling is for bloody idiots. You probably lost. Let's play again.");
     }
 }

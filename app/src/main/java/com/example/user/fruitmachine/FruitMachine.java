@@ -93,7 +93,7 @@ public class FruitMachine {
         String resultsText = "";
 
         for (Symbol symbol: this.results){
-            resultsText += symbol.name() + ", ";
+            resultsText += symbol.name() + " ";
         }
 
         return resultsText;
