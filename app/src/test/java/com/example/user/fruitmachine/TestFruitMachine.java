@@ -55,6 +55,13 @@ public class TestFruitMachine {
     }
 
     @Test
+    public void testRemovePreviousResultFromMachine() throws Exception {
+        fruitMachine.spin();
+        fruitMachine.removeOldResults();
+        assertEquals(0, fruitMachine.getResults().size());
+    }
+
+    @Test
     public void testCompareSymbolsAndReturnValue() throws Exception {
         FruitMachine spyMachine = Mockito.spy(new FruitMachine("Test", 100, 200));
         spyMachine.spin();

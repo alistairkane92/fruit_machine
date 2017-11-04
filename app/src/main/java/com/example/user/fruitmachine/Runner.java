@@ -12,7 +12,7 @@ public class Runner {
 
     public static void main(String[] args) {
         Ui ui = new Ui();
-        FruitMachine fruitMachine = new FruitMachine("The Juicy Lucy", 200, 100);
+        FruitMachine fruitMachine = new FruitMachine("The Juicy Lucy", 100, 100);
         fruitMachine.play();
     }
 
