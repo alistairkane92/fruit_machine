@@ -8,11 +8,10 @@ import java.util.ArrayList;
  */
 
 public class Runner {
-        Ui ui;
 
     public static void main(String[] args) {
         Ui ui = new Ui();
-        FruitMachine fruitMachine = new FruitMachine("The Juicy Lucy", 100, 100);
+        FruitMachine fruitMachine = new FruitMachine("The Juicy Lucy", 1, 2);
         fruitMachine.play();
     }
 

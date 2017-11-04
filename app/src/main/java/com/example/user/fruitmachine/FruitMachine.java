@@ -1,5 +1,7 @@
 package com.example.user.fruitmachine;
 
+import com.vdurmont.emoji.EmojiParser;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -108,24 +110,28 @@ public class FruitMachine {
     public void play() {
         ui.introMessage();
         String response = ui.askUserIfTheyWantToPlay().toUpperCase();
-            while (response.equals("Y")) {
-                if (playerFunds > 0 && machineFunds > 0) {
-                    this.spin();
-                    int winnings = this.compareSymbolsReturnWinnings();
-                    this.payout(winnings);
-                    setPlayerFunds(playerFunds - 1);
-                    ui.showUserSymbols(describeSymbols());
-                    ui.resultDependentText(this.compareSymbolsReturnWinnings());
-                    ui.showWin(this.compareSymbolsReturnWinnings());
-                    ui.showUserFunds(playerFunds);
-                    response = ui.askUserIfTheyWantToPlay().toUpperCase();
-                } else if (playerFunds == 0) {
-                    ui.showUserOutOfCash();
-                } else if (machineFunds == 0) {
-                    ui.showMachineOutOfCash();
-                }
+
+        while (response.equals("Y") && playerFunds > 0){
+            if (playerFunds > 0 && machineFunds > 0) {
+                this.spin();
+                int winnings = this.compareSymbolsReturnWinnings();
+                this.payout(winnings);
+                setPlayerFunds(playerFunds - 1);
+                ui.showUserSymbols(describeSymbols());
+                ui.resultDependentText(this.compareSymbolsReturnWinnings());
+                ui.showWin(this.compareSymbolsReturnWinnings());
+                ui.showUserFunds(playerFunds);
+                response = ui.askUserIfTheyWantToPlay().toUpperCase();
                 this.removeOldResults();
+            }
         }
+
+        if (playerFunds == 0) {
+            ui.showUserOutOfCash();
+        } else if (machineFunds == 0) {
+            ui.showMachineOutOfCash();
+        }
+
         ui.outroMessage();
     }
 }

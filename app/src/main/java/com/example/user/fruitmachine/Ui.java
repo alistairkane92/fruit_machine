@@ -48,23 +48,23 @@ public class Ui {
         if (amountWon >=30){
             System.out.println("!!!!!!! YOU WON THE JACKPOT !!!!!!!!");
         } else if (amountWon >= 27){
-            System.out.println("   You're a big winner, drinks are on you! --");
+            System.out.println("   !    You're a big winner, drinks are on you! --");
         } else if (amountWon >= 24){
-            System.out.println("   Super! You're in the money. Congrats --");
+            System.out.println("   !    Super! You're in the money. Congrats --");
         } else if (amountWon >= 21){
             System.out.println("  Good win!");
         } else if (amountWon >= 18){
-            System.out.println("   We have ourselves a winner!");
+            System.out.println("    !   We have ourselves a winner!");
         } else if (amountWon >= 15){
-            System.out.println("   Its a moderate win! As such, you should be moderately happy!");
+            System.out.println("   !    Its a moderate win! As such, you should be moderately happy!");
         } else if (amountWon >= 12){
-            System.out.println("   A small win. Good for you.");
+            System.out.println("   !    A small win. Good for you.");
         } else if (amountWon >= 9){
-            System.out.println("   Well at least you didn't lose");
+            System.out.println("   !    Well at least you didn't lose");
         } else if (amountWon >= 6){
-            System.out.println("   You won. A bit. Sort of...");
+            System.out.println("   !    You won. A bit. Sort of...");
         } else if (amountWon >= 3){
-            System.out.println("   Bad news I'm afraid. You've won. The worst amount possible. Feel bad.");
+            System.out.println("   !    Bad news I'm afraid. You've won. The least amount possible. Feel bad.");
         } else System.out.println(" You did not win. I am deeply sorry for your loss. Please try again. Please.");
     }
 
