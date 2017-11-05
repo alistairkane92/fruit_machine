@@ -1,6 +1,5 @@
 package com.example.user.fruitmachine;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -11,8 +10,9 @@ public class Runner {
 
     public static void main(String[] args) {
         Ui ui = new Ui();
-        FruitMachine fruitMachine = new FruitMachine("The Juicy Lucy", 1, 2);
+        FruitMachine fruitMachine = new FruitMachine("The Juicy Lucy", 200, 100, 1, 3);
         fruitMachine.play();
+        fruitMachine.compareSymbolsReturnWinnings();
     }
 
 }
